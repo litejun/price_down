@@ -1,0 +1,161 @@
+package Olognsort;
+
+import java.util.Scanner;
+
+import java.util.Arrays;
+
+public class Merge_sort {
+ 
+        public static void main(int[] array) {
+ 
+    		
+		    for(int i = 0; i<array.length;i++){
+				array[i] = (int)(Math.random()*1000);
+			}
+		
+			for(int i=0;i<array.length;i++){
+				System.out.print(array[i] + " ");
+			}
+			System.out.println();		
+		    System.out.println("병합 정렬을 시작합니다.");
+
+ 
+               array = mergeSort(array);
+ 
+               System.out.print(Arrays.toString(array));
+ 
+        }
+ 
+        public static int[] mergeSort(int array[]) {
+               if (array.length > 1) {
+ 
+                       int elementsInA1 = array.length / 2;
+                       int elementsInA2 = array.length - elementsInA1;
+ 
+                       int arr1[] = new int[elementsInA1];
+                       int arr2[] = new int[elementsInA2];
+ 
+                       for (int i = 0; i < elementsInA1; i++)
+                              arr1[i] = array[i];
+ 
+                   for (int i = elementsInA1; i < elementsInA1 + elementsInA2; i++)
+                              arr2[i - elementsInA1] = array[i];
+ 
+                       arr1 = mergeSort(arr1);
+                       arr2 = mergeSort(arr2);
+ 
+                       int i = 0, j = 0, k = 0;
+ 
+                       while (arr1.length != j && arr2.length != k) {
+ 
+                              if (arr1[j] < arr2[k]) {
+                                      array[i] = arr1[j];
+                                      i++;
+                                      j++;
+                              } else {
+                                      array[i] = arr2[k];
+                                      i++;
+                                      k++;
+                              }
+                       }
+ 
+                       while (arr1.length != j) {
+                              array[i] = arr1[j];
+                              i++;
+                              j++;
+                       }
+                       while (arr2.length != k) {
+                              array[i] = arr2[k];
+                              i++;
+                              k++;
+                       }
+               }
+ 
+               return array;
+        }
+ 
+}
+
+/*
+public class Merge_sort {
+	public static int[] mergeSort(int array[]) {
+		
+		for(int i = 0; i<array.length;i++){
+			array[i] = (int)(Math.random()*1000);
+		}
+
+		for(int i=0;i<array.length;i++){
+			System.out.print(array[i] + " ");
+		}
+	System.out.println();
+
+        if (array.length > 1) {
+
+                int elementsInA1 = array.length / 2;
+                int elementsInA2 = array.length - elementsInA1;
+
+                int arr1[] = new int[elementsInA1];
+                int arr2[] = new int[elementsInA2];
+
+                for (int i = 0; i < elementsInA1; i++)
+                       arr1[i] = array[i];
+
+            for (int i = elementsInA1; i < elementsInA1 + elementsInA2; i++)
+                       arr2[i - elementsInA1] = array[i];
+
+                arr1 = mergeSort(arr1);
+                arr2 = mergeSort(arr2);
+
+                int i = 0, j = 0, k = 0;
+
+                while (arr1.length != j && arr2.length != k) {
+
+                       if (arr1[j] < arr2[k]) {
+                               array[i] = arr1[j];
+                               i++;
+                               j++;
+                       } else {
+                               array[i] = arr2[k];
+                               i++;
+                               k++;
+                       }
+                }
+
+                while (arr1.length != j) {
+                       array[i] = arr1[j];
+                       i++;
+                       j++;
+                }
+                while (arr2.length != k) {
+                       array[i] = arr2[k];
+                       i++;
+                       k++;
+                }
+        }
+        
+
+
+        return array;
+ }
+	
+	public static void main(String args[]){
+		Scanner scan = new Scanner(System.in);
+		
+		int temp, size;
+		System.out.println("배열의 크기를 입력하세요");
+		size = scan.nextInt();
+		
+int array[] = new int[size];
+		System.out.println("병합 정렬을 시작합니다.");
+		
+		mergeSort(array);
+		
+		System.out.println("병합 정렬 끝");
+		for(int i = 0; i<array.length;i++){
+			System.out.print(array[i] + " ");
+		}
+		
+	}
+
+}
+*/

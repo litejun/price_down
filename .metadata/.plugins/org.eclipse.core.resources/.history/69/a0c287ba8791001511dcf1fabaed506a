@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+import Olognsort.Heap_sort;
+import Olognsort.Merge_sort;
+import Olognsort.Quick_sort;
+import On2sort.Bubble_sort;
+import On2sort.Insert_sort;
+import On2sort.Select_sort;
+
+public class Test_of_Sort {
+	public static void main(String args[]){
+		
+		
+		
+		//종류별 소트 불러오기(O(n2))
+		Bubble_sort bubble = new Bubble_sort();
+		Insert_sort insert = new Insert_sort();
+		Select_sort select = new Select_sort();
+		//종류별 소트 불러오기(O(logn))
+		Heap_sort heap = new Heap_sort();
+		Merge_sort merge = new Merge_sort();
+		Quick_sort quick = new Quick_sort();
+		
+		long start = System.currentTimeMillis();
+		bubble.main(args);
+		long end = System.currentTimeMillis();
+		
+		
+		long start2 = System.currentTimeMillis();
+		insert.main(args);
+		long end2 = System.currentTimeMillis();
+		
+		
+		long start3 = System.currentTimeMillis();
+		select.main(args);
+		long end3 = System.currentTimeMillis();
+		
+		
+		long start4 = System.currentTimeMillis();
+		heap.main(args);
+		long end4 = System.currentTimeMillis();
+		
+		
+		long start5 = System.currentTimeMillis();
+		merge.main(args);
+		long end5 = System.currentTimeMillis();
+		
+		long start6 = System.currentTimeMillis();
+		quick.main(args);
+		long end6 = System.currentTimeMillis();
+		
+		
+		System.out.println();
+		System.out.println("버블");
+		System.out.println("삽입");
+		System.out.println("선택");
+		System.out.println("힙");
+		System.out.println("병합");
+		System.out.println("퀵");
+		
+		
+	}
+}

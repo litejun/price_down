@@ -1,0 +1,168 @@
+package Calculator;
+// java.awt
+import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+// javax.swing
+import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JFrame;
+public class Calculator extends JFrame
+{
+ private String num1, num2; // 사용자로부터 입력 받는 첫번째 수(num1), 두번째 수(num2)
+ private int numOne, numTwo, sum; // 입력받은 첫번째 수와 두번째 수와 합계
+ public final String names[] = {"(",")","%","AC","7", "8", "9", "/", "4", "5", "6", "x", "1", "2", "3", "-", "0", ".", "=", "+"}; // 키 패드 배열
+ private JButton clear;
+ private JTextField inputText;
+ String save;
+ 
+ /*
+  * 계산기의 레이아웃 메소드
+  */
+ public Calculator()
+ {
+  super("계산기");
+  
+  BorderLayout layout = new BorderLayout(5, 3); // 수평, 수직 간격을 각 2, 2 로 지정한다.
+  setLayout(layout); // 프레임의 레이아웃을 지정한다.
+  
+  /*
+   * groupPanel 은 타이틀 라벨과 사용자의 입력을 받는 텍스트 필드를 그룹화 하고 있다.
+   */
+  JPanel groupPanel = new JPanel(new BorderLayout(5, 2));
+  
+  JLabel title = new JLabel("Swing 으로 구현한 계산기", SwingConstants.CENTER); // 타이틀 라벨 생성
+  groupPanel.add(title, BorderLayout.NORTH);
+   
+  inputText = new JTextField("", SwingConstants.CENTER); // 사용자 입력을 받는 텍스트 필드
+  inputText.setHorizontalAlignment(JTextField.RIGHT); // 프롬프트를 오른쪽 정렬 시킨다.
+  
+  groupPanel.add(inputText, BorderLayout.CENTER);
+  
+  /*
+   * 숫자 키패드 생성
+   */
+  JPanel padPanel = new JPanel(new GridLayout(5, 4)); // 키 패드가 배열로 수평 5, 수직 4 개씩 위치 할 수 있게 GridLayout 을 각각 5,4 로 레이아웃 지정한다.
+  
+  JButton buttons[] = new JButton[names.length]; // 키패드 배열 생성
+  
+  for(int count = 0; count < names.length; count++)
+  {
+   buttons[count] = new JButton(names[count]);
+   padPanel.add(buttons[count]);
+   buttons[count].addActionListener(new Buttons());
+  }
+  
+  /*
+   * 하단 클리어 버튼 및 만든이 View
+   */
+  JPanel infoView = new JPanel(new BorderLayout(2, 4));
+  
+  clear = new JButton("Clear"); // 입력 창을 클리어 시킬 버튼을 생성.
+  clear.addActionListener(new Clear());
+  infoView.add(clear, BorderLayout.NORTH);
+ 
+  // 타이틀 라벨과, 텍스트 필드를 담은 groupPanel을 전체 프레임의 최상단에 위치 시킨다. 
+  add(groupPanel, BorderLayout.NORTH);
+  // 숫자 키패드 패널을 전체 프레임의 중간에 위치 시킨다.
+  add(padPanel, BorderLayout.CENTER);
+  add(infoView, BorderLayout.SOUTH);
+ }
+ 
+ public class Buttons implements ActionListener{
+	 public void actionPerformed(ActionEvent e){
+		 String n = e.getActionCommand();
+		 
+		 switch(n){
+		 case "(" : inputText.setText(names[0]); save = save + names[0];
+		 break;
+		 
+		 case ")" : inputText.setText(names[1]); save = save + names[1];
+		 break;
+		 
+		 case "%" : inputText.setText(names[2]); save = save + names[2];
+		 break;
+		 
+		 case "AC" : inputText.setText(names[3]); save = save + names[3];
+		 break;
+		 
+		 
+		 case "7" : inputText.setText(names[4]); save = save + names[4];
+		 break;
+		 
+		 case "8" : inputText.setText(names[5]); save = save + names[5];
+		 break;
+		 
+		 case "9" : inputText.setText(names[6]); save = save + names[6];
+		 break;
+		 
+		 case "/" : inputText.setText(names[7]); save = save + names[7];
+		 break;
+		 
+		 case "4" : inputText.setText(names[8]); save = save + names[8];
+		 break;
+		 
+		 case "5" : inputText.setText(names[9]); save = save + names[9];
+		 break;
+		 
+		 case "6" : inputText.setText(names[10]); save = save + names[10];
+		 break;
+		 
+		 case "x" : inputText.setText(names[11]); save = save + names[11];
+		 break;
+		 
+		 case "1" : inputText.setText(names[12]); save = save + names[12];
+		 break;
+		 
+		 case "2" : inputText.setText(names[13]); save = save + names[13];
+		 break;
+		 
+		 case "3" : inputText.setText(names[14]); save = save + names[14];
+		 break;
+		 
+		 case "-" : inputText.setText(names[15]); save = save + names[15];
+		 break;
+		 
+		 case "0" : save = save + names[16]; inputText.setText(save);
+		 break;
+		 
+		 case "." :  save = save + names[17]; inputText.setText(save);
+		 break;
+		 
+		 case "=" : inputText.setText(names[18]);
+		 break;
+		 
+		 case "+" : inputText.setText(names[19]);
+		 break;
+		 }
+		 		 
+	 }
+ }
+ 
+ public class Clear implements ActionListener{
+	 public void actionPerformed(ActionEvent e){
+		 int x;
+		 if(e.getSource() == clear){
+			 inputText.setText("");
+			 save = "";
+		 }
+	 }
+ }
+ 
+ /*
+  * 계산기를 실행 시키는 메소드
+  */
+ public static void main(String args[])
+ {
+  Calculator calStart = new Calculator(); // 객체 생성
+  
+  //calStart.pack(); // 최소한의 사이즈로 자동으로 프레임 사이즈 조정
+  calStart.setSize(270, 450); // 계산기 프레임의 사이즈 정의
+  calStart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 프레임을 닫을 경우 종료 시킴
+  calStart.setVisible(true);
+ }
+}

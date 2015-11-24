@@ -1,0 +1,29 @@
+package On2sort;
+import java.util.*;
+
+public class Select_sort {
+	public static void select(int array[]){
+
+		int min;
+		int j;
+		int temp=0;
+		System.out.println("선택 정렬을 시작합니다.");
+			for(int i=0;i<array.length;i++){
+				min = array[i];
+				for(j=i;j<array.length-1;j++){
+					if(min > array[j+1]){
+						min = array[j+1];
+						temp = j+1;
+					}
+				}
+				array[temp] = array[i];
+				array[i] = min;
+			}
+		
+		System.out.println("선택 정렬 완료");
+			for(int i=0;i<array.length;i++){
+				System.out.print(array[i] + " ");
+			}
+			System.out.println();
+	}
+}

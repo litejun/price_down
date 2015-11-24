@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+import Olognsort.Quick_sort;
+
+public class Test_of_Sort {
+	public static void main(String args[]){
+		
+		
+		
+		//종류별 소트 불러오기
+		
+		Quick_sort quick = new Quick_sort();
+	}
+}

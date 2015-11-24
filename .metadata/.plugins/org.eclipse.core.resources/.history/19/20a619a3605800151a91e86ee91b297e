@@ -1,0 +1,44 @@
+package test;
+import java.util.*;
+
+public class sum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Integer num[] = {1,5,4,2,6};
+		Arrays.sort(num, Collections.reverseOrder());
+		System.out.println(Arrays.toString(num));
+		
+		PlusMinus ob1 = new PlusMinus();
+		int sum = ob1.plus(1,100);
+		System.out.println(sum);
+		int sum2 = ob1.plus2(1,100);
+		System.out.println(sum2);
+		
+	}
+}
+
+class PlusMinus{
+	int plus, plus2;
+	public int plus(int x, int y){
+		int sum = 0;
+		for(int i = x; i<=y; i++){
+			sum = sum + i;
+		}
+		return sum;
+	}
+	public int plus2(int x, int y){
+		int sum = 0;
+			if(x % 2 == 0)
+				for(int i = x; i<=y; i=i+2){
+					sum = sum + i;
+				}
+			else{
+				for(int i = x+1; i<=y; i=i+2){
+					sum = sum + i;
+				}
+			}
+		return sum;
+	}
+}

@@ -1,0 +1,40 @@
+package On2sort;
+import java.util.*;
+
+public class Select_sort {
+	public static void main(String args[]){
+		
+		Scanner scan = new Scanner(System.in);
+		int size, temp, min, j;
+		int array[];
+		
+		System.out.println("배열의 크기를 입력하세요");
+		size = scan.nextInt();
+		
+		System.out.println("랜덤으로 배열에 수를 집어넣겠습니다.");
+		array = new int[size];
+			for(int i = 0; i<array.length;i++){
+				array[i] = (int)(Math.random()*1000);
+			}
+		System.out.println("초기 배열의 값들입니다.");
+			for(int i=0;i<array.length;i++){
+				System.out.print(array[i] + " ");
+			}
+		System.out.println();
+		System.out.println("버블 정렬을 시작합니다.");
+			for(int i=0;i<array.length;i++){
+				min = array[i];
+				for(j=i;j<array.length-1;j++){
+					if(min > array[j+1]){
+						min = array[j+1];
+						temp = j+1;
+					}
+				}
+				array[temp] = array[i];
+				array[i] = min;
+				
+			}
+		
+		
+	}
+}

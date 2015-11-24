@@ -1,0 +1,40 @@
+package On2sort;
+
+import java.util.Scanner;
+
+public class Insert_sort {
+	public static void main(String args[]){
+		Scanner scan = new Scanner(System.in);
+		int size, min, j;
+		int in = 0;
+		int array[];
+		
+		System.out.println("배열의 크기를 입력하세요");
+		size = scan.nextInt();
+		
+		System.out.println("랜덤으로 배열에 수를 집어넣겠습니다.");
+		array = new int[size];
+			for(int i = 0; i<array.length;i++){
+				array[i] = (int)(Math.random()*1000);
+			}
+		System.out.println("초기 배열의 값들입니다.");
+			for(int i=0;i<array.length;i++){
+				System.out.print(array[i] + " ");
+			}
+		System.out.println();
+		System.out.println("삽입 정렬을 시작합니다.");
+			for(int i = 1; i<array.length;i++){
+				in = array[i];
+				for(j = i-1; (j>=0) &&(in<array[j]);j--){
+					array[j+1] = array[j];
+				}
+				array[j+1] = in;
+			}
+			
+		System.out.println("삽입 정렬 완료");
+			for(int i = 0;i<array.length;i++){
+				System.out.print(array[i] + " ");
+			}
+
+	}
+}

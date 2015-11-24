@@ -1,0 +1,78 @@
+import java.util.Scanner;
+
+import Olognsort.Heap_sort;
+import Olognsort.Merge_sort;
+import Olognsort.Quick_sort;
+import On2sort.Bubble_sort;
+import On2sort.Insert_sort;
+import On2sort.Select_sort;
+
+public class Test_of_Sort {
+	public static void main(String args[]){
+		Scanner scan = new Scanner(System.in);
+		
+		int temp, size;
+		System.out.println("배열의 크기를 입력하세요");
+		size = scan.nextInt();
+		
+		System.out.println("랜덤으로 배열에 수를 집어넣겠습니다.");
+		int[] array = new int[size];
+			for(int i = 0; i<array.length;i++){
+				array[i] = (int)(Math.random()*1000);
+			}
+		System.out.println("초기 배열의 값들입니다.");
+			for(int i=0;i<array.length;i++){
+				System.out.print(array[i] + " ");
+			}
+		System.out.println();
+		
+		
+		//종류별 소트 불러오기(O(n2))
+		Bubble_sort bubble = new Bubble_sort();
+		Insert_sort insert = new Insert_sort();
+		Select_sort select = new Select_sort();
+		//종류별 소트 불러오기(O(logn))
+		Heap_sort heap = new Heap_sort();
+		Merge_sort merge = new Merge_sort();
+		Quick_sort quick = new Quick_sort();
+		
+		long start = System.currentTimeMillis();
+		bubble.bubble(array);
+		long end = System.currentTimeMillis();
+		
+		
+		long start2 = System.currentTimeMillis();
+		insert.main(args);
+		long end2 = System.currentTimeMillis();
+		
+		
+		long start3 = System.currentTimeMillis();
+		select.main(args);
+		long end3 = System.currentTimeMillis();
+		
+		
+		long start4 = System.currentTimeMillis();
+		heap.heap(array);
+		long end4 = System.currentTimeMillis();
+		
+		
+		long start5 = System.currentTimeMillis();
+		merge.mergeSort(array);
+		long end5 = System.currentTimeMillis();
+		
+		long start6 = System.currentTimeMillis();
+        quick.sort(array, 0, array.length - 1);
+		long end6 = System.currentTimeMillis();
+		
+		
+		System.out.println();
+		System.out.println("버블");
+		System.out.println("삽입");
+		System.out.println("선택");
+		System.out.println("힙");
+		System.out.println("병합");
+		System.out.println("퀵");
+		
+		
+	}
+}

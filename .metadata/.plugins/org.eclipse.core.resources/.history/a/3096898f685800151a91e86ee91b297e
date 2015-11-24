@@ -1,0 +1,9 @@
+package test;
+import java.util.*;
+
+
+public class arrayMax_Min {
+	public static void main(String args[]){
+		
+	}
+}
