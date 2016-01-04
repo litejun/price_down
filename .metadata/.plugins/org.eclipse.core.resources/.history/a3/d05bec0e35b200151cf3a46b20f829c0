@@ -1,0 +1,5 @@
+package SinigletonPattern;
+
+public class DCL_Singleton {
+
+}

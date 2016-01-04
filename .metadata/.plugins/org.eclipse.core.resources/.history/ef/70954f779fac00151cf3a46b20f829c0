@@ -1,0 +1,5 @@
+package DesignPattern;
+
+public class FlyWithWings implements FlyBehavior{
+	
+}

@@ -1,0 +1,87 @@
+
+public class Iris {
+	public static void main(String args[]){
+		int sum = 0;
+		int a = 1;
+		
+		//1~100까지 합, 짝수합
+		for(int i=0;i<100;i++){
+			sum = sum + a;
+			a = a + 1;
+		}
+		System.out.println(sum);
+		
+		sum = 0;
+		a = 1;
+		for(int i=0;i<50;i++){
+			sum = sum + a;
+			a = a + 2;
+		}
+		System.out.println(sum);
+		
+		sum = 0;
+		a = 2;
+		for(int i=0;i<50;i++){
+			sum = sum + a;
+			a = a + 2;
+		}
+		System.out.println(sum);
+		
+		//정렬, 최대값구하기
+		int temp;
+		int max = 0;
+		int array[] = {1,5,4,7,8,2,3,9,10,6};
+		for(int i=0;i<array.length-1;i++){
+			for(int j = 0;j<array.length-1-i;j++){
+				if(array[j]>=array[j+1]){
+					temp = array[j];
+					array[j] = array[j+1];
+					array[j+1] = temp;
+				}
+			}
+		}
+		max = array[9];
+		System.out.println(max);
+		for(int i = 0;i<array.length;i++){
+			System.out.print(array[i] + " ");
+		}
+		System.out.println();
+		
+		//Combination 계산하기
+		double combination = 0;
+		double sum1 = 0, sum2 = 0, sum3 = 0;
+		for(double i=1;i<=7;i++){
+			sum1 = sum1 + Math.log(i);
+		}
+
+		for(int i=1;i<=3;i++){
+			sum2 = sum2 + Math.log(i);
+		}
+
+		for(int i=1;i<=4;i++){
+			sum3 = sum3 + Math.log(i);
+		}
+
+		
+		combination = Math.exp(sum1-sum2-sum3);
+		System.out.println(combination);
+		
+		//주차요금 계산 프로그램 실습
+		int fee = 0;
+		int time = 590;
+		
+		if(time<=10){
+			fee = 0;
+		}
+		if(time>10 && time<=30){
+			fee = 500;
+		}
+		if(time>30){
+			fee = 500 + (time-30)/10*500;
+		}
+		
+		System.out.println(fee);
+		
+		
+	}
+}

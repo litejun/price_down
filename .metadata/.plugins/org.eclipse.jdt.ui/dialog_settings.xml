@@ -3,11 +3,12 @@
 	<item value="D:\소프트웨어실습(김승환)\UCanAccess-3.0.2-bin\UCanAccess-3.0.2-bin\lib" key="org.eclipse.jdt.ui.lastextjar"/>
 	<section name="FatJarPackageWizard">
 		<item value="D:\workspace" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
-		<item value="Calculator2 - test" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="C:\Users\Owner\Desktop\JSJ메이커\전문능력키우기\개발자의늪\소프트웨어실습\Calc.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="Test_of_Sort - Sort" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="C:\Users\Owner\Desktop\JSJ메이커\전문능력키우기\개발자의늪\슈퍼개발자와함께하는개발공부\Sort.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\Owner\Desktop\JSJ메이커\전문능력키우기\개발자의늪\슈퍼개발자와함께하는개발공부\Sort.jar"/>
 			<item value="C:\Users\Owner\Desktop\JSJ메이커\전문능력키우기\개발자의늪\소프트웨어실습\Calc.jar"/>
 			<item value="C:\Users\Owner\Desktop\Calc.jar"/>
 		</list>

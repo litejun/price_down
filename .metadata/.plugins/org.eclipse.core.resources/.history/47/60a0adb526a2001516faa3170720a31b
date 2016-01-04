@@ -1,0 +1,47 @@
+
+public class Iris {
+	public static void main(String args[]){
+		int sum = 0;
+		int a = 1;
+		for(int i=0;i<100;i++){
+			sum = sum + a;
+			a = a + 1;
+		}
+		System.out.println(sum);
+		
+		sum = 0;
+		a = 1;
+		for(int i=0;i<50;i++){
+			sum = sum + a;
+			a = a + 2;
+		}
+		System.out.println(sum);
+		
+		sum = 0;
+		a = 2;
+		for(int i=0;i<50;i++){
+			sum = sum + a;
+			a = a + 2;
+		}
+		System.out.println(sum);
+		
+		
+		int temp;
+		int max = 0;
+		int array[] = {1,5,4,7,8,2,3,9,10,6};
+		for(int i=0;i<array.length-1;i++){
+			for(int j = i;j<array.length-1-i;j++){
+				if(array[j]>=array[j+1]){
+					temp = array[j];
+					array[j] = array[j+1];
+					array[j+1] = temp;
+				}
+			}
+		}
+		max = array[9];
+		System.out.println(max);
+		for(int i = 0;i<array.length;i++){
+			System.out.print(array[i] + " ");
+		}
+	}
+}

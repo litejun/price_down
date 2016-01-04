@@ -1,0 +1,10 @@
+package StretagyPattern_example;
+
+public class House {
+	Toilet toilet;
+	Balcony balcony;
+	public House(){
+		
+	}
+	public abstract void display();
+}

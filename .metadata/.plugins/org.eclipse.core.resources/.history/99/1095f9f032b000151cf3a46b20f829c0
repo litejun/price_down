@@ -1,0 +1,13 @@
+package Command_Pattern;
+
+public class ActionACommand implements Command{
+	ActionA aa;
+	public ActionACommand(ActionA aa){
+		
+	}
+	public void execute(){
+		aa.abc();
+		aa.setBbc();
+		aa.getCbc();
+	}
+}

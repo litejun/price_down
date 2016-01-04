@@ -1,0 +1,38 @@
+package DB_R_Java;
+
+import org.rosuda.JRI.*;
+publicclassRRand{
+publicstaticvoidmain(String arg[])
+{
+Rengineren= newRengine(null, false, null);
+if(!ren.waitForR())
+{
+System.out.println("Cannot load R");
+return;
+}
+
+double[] musigma= {100,3};
+longp1= ren.rniPutDoubleArray(musigma);
+ren.rniAssign("musigma", p1, 0);
+System.out.println(p1);
+String Rcomm1= "x<-musigma[1]+musigma[2]*rnorm(100)";
+String Rcomm2="meanx<-mean(x)";
+String Rcomm3= "stdx<-sd(x)";
+String Rcomm4= "hist(x)";
+String Rcomm5= "savePlot(filename='d://r.png',type='png')";
+REXP rn1=ren.eval(Rcomm1);
+REXP rn2=ren.eval(Rcomm2);
+REXP rn3=ren.eval(Rcomm3);
+REXP rn4=ren.eval(Rcomm4);
+REXP rn5=ren.eval(Rcomm5);
+double[] rnd=rn1.asDoubleArray();
+doubleavg=rn2.asDouble();
+doublestd=rn3.asDouble();
+for(inti=0; i<rnd.length; i++)
+{
+System.out.println(rnd[i]);
+}
+System.out.println("mean:"+ avg+ " std:"+ std);
+ren.end();
+} //main End
+} //Class End

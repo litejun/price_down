@@ -1,0 +1,20 @@
+package Command_Pattern;
+
+public class Remote {
+	Command actionACmd[];
+	Command actionBCmd[];
+	
+	public Remote(){
+		actionACmd[] = new Command[n];
+		actionBCmd[] = new Command[n];
+	}
+	
+	public void setCmd(int i, Command actionACmd, Command actionBCmd){
+		actionACmd[i] = actionACmd;
+		actionBCmd[i] = actionBCmd;
+	}
+	public void actionACmdExecute(int i){
+		actionACmd[i].execute();
+	}
+
+}

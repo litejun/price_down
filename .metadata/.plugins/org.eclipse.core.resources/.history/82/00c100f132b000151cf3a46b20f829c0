@@ -1,0 +1,14 @@
+package Command_Pattern;
+
+public class TestCommand {
+	public static void main(String args[]){
+		Remote r = new Remote();
+		
+		ActionA aa = new ActionA();
+		ActionACommand aac = new ActionACommand(aa);
+		ActionBCommand abc = new ActionBCommand(aa);
+		r.setCmd(1,aac,abc);
+		
+		r.actionACmdExecute(1);
+	}
+}

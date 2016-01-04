@@ -1,0 +1,15 @@
+package Command_Pattern;
+
+public class ActionA {
+	int data;
+	
+	public void abc(){
+		
+	}
+	public void setBbc(){
+		this.data = 99;
+	}
+	public int getCbc(){
+		return data;
+	}
+}

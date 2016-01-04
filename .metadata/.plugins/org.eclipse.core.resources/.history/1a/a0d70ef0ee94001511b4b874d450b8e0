@@ -1,0 +1,48 @@
+package test;
+
+import rcaller.RCaller;
+import java.io.File;
+
+public class RCallerTest{
+public static void main(String[] args){
+try{
+//Creating an instance of class RCaller
+RCaller caller = new RCaller();
+//Important. Where is the Rscript?
+caller.setRscriptExecutable("C:/Program Files/R/R-3.2.2/bin/x64/Rscript.exe");
+
+//Generating x and y vectors
+double[] x = new double[]{1,2,3,4,5,6,7,8,9,10};
+double[] y = new double[]{2,4,6,8,10,12,14,16,18,30};
+//Generating R code, addDoubleArray() method converts Java arrays to R vectors
+caller.addDoubleArray("x", x);
+caller.addDoubleArray("y", y);
+//ols<-lm(y~x) is totally R Code, we send the x and the y vectors from Java
+caller.addRCode("ols<-lm(y~x)");
+File file1 = caller.startPlot();
+caller.addRCode("plot(x,y)");
+caller.addRCode("abline(ols)");
+//We are running the R code, we want code to send some result to us (java)
+caller.runAndReturnResult("ols");
+caller.showPlot(file1);
+System.out.println("Available results from lm() object:");
+System.out.println(caller.getParser().getNames());
+
+//Parsing some objects of lm()
+double[] residuals = caller.getParser().getAsDoubleArray("residuals");
+double[] coefficients = caller.getParser().getAsDoubleArray("coefficients");
+double[] fitteds= caller.getParser().getAsDoubleArray("fitted_values");
+//Printing results
+System.out.println("Coefficients:");
+for (int i=0;i< coefficients.length; i++){
+System.out.println("Beta "+i+" = "+coefficients[i]);
+}
+System.out.println("Residuals:");
+for (int i=0;i< residuals.length; i++){
+System.out.println(i+" = "+residuals[i]);
+} //try End
+}catch (Exception e){
+System.out.println(e.toString());
+} //catch End
+} //main End
+} //Class End
