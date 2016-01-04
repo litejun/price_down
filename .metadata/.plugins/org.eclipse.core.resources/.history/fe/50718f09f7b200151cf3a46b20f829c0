@@ -1,0 +1,20 @@
+package Command_Pattern;
+
+public class SimpleRemoteControl {
+	Command onCommand;
+	Command offCommand;
+	
+	public SimpleRemoteControl(){}
+	
+	public void setCommand(Command slot, Command slot2){
+		slot = onCommand;
+		slot2 = offCommand;
+	}
+	
+	public void onButtonWasPressed(){
+		onCommand.execute();
+	}
+	public void offButtonWasPushed(){
+		offCommand.execute();
+	}
+}
